@@ -1,95 +1,59 @@
-import Image from 'next/image'
+'use client'
+import { useEffect, useState } from 'react';
 import styles from './page.module.css'
+import InputContainer from './components/Range';
+import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
-export default function Home() {
+const MainPage = () => {
+  const [total , setTotal] = useState(0)
+  const [refresh , setRefresh] = useState(false)
+  useEffect(()=>{
+    const Morning = JSON.parse(localStorage.getItem("Morning"))
+    const Noon = JSON.parse(localStorage.getItem("Noon"))
+    const Night = JSON.parse(localStorage.getItem("Night"))
+    setTotal(Morning + Noon + Night)
+  },[refresh])
+
+  
+  const date = new Date().toLocaleDateString() 
+  const submitHandler = async()=>{  
+    const res = await fetch("api/task" , {
+      method:"POST" , body:JSON.stringify({total , date}) , headers :{"Content-Type" :"application/json"}
+    })
+    const data = await res.json()
+    if(data.status == 201){
+      localStorage.removeItem('Morning')
+      localStorage.removeItem('Noon')
+      localStorage.removeItem('Night')
+      setRefresh(!refresh)
+      toast.success(data.message)
+    }
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className ={styles.container}>
+    <img  src='background.jpg'/>
+      <div className={styles.buttonsContainer}>
+        <div className={styles.date}>{date}</div>
+        <InputContainer total = {total} refresh = {refresh}  setRefresh ={setRefresh} time = {"Morning"}  max = {4}/>
+        <InputContainer total = {total}  refresh = {refresh}  setRefresh ={setRefresh} time = {"Noon"} max = {3}/>
+        <InputContainer total = {total} refresh = {refresh}  setRefresh ={setRefresh} time = {"Night"} max = {2} />
+
+        <div className={styles.todayContainer}>
+            <div>
+                <label>Total hour :</label>
+               <input disabled={true} value={total}  type='number'/>
+            </div>
+ 
+            <button onClick={submitHandler}>Submit</button>
+
         </div>
       </div>
+      <Toaster />
+   
+    </div>
+  );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default MainPage;
