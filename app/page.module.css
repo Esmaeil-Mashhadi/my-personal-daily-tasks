@@ -43,14 +43,17 @@
 }
 .todayContainer input {
   outline: none;
-  width: 50px;
   border-radius: 5px;
+  width: 50px;
   border: none;
   padding: 5px;
   background-color: aquamarine;
   box-shadow: 0px 0px 5px black;
   margin-left: 10px;
+  text-align: center;
+  font-weight: bold;
 }
+
 
 .todayContainer button{
   border-radius: 5px;

@@ -43,7 +43,7 @@ const MainPage = () => {
         <div className={styles.todayContainer}>
             <div>
                 <label>Total hour :</label>
-               <input disabled={true} value={total}  type='number'/>
+               <input disabled={true} value={total + "h"}  type='text'/>
             </div>
  
             <button onClick={submitHandler}>Submit</button>
