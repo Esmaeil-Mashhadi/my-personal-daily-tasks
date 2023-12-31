@@ -42,8 +42,8 @@ const InputContainer = ({time , max , refresh , setRefresh , total}) => {
         <div style={timeBackground} className={styles.container}>
         <label>{time}</label>
               <div className={styles.rangeContainer}>
-                  <input style={rangeStyleObject} onChange={changeHandler} onMouseUp={setHandler} value={value} step={.5} min={0} max={max} type='range' />
-                  <input type='number' onChange={changeHandler} step={.5}  value={value} min={0} max={max}/>
+                  <input style={rangeStyleObject} onChange={changeHandler} onTouchEnd={setHandler}  onMouseUp={setHandler} value={value} step={.5} min={0} max={max} type='range' />
+                  <input type='number'  onChange={changeHandler} step={.5}  value={value} min={0} max={max}/>
               </div>
       </div>
     );

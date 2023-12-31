@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import styles from './page.module.css'
 import InputContainer from './components/Range';
 import toast, { Toaster } from 'react-hot-toast';
-import { useRouter } from 'next/navigation';
 
 const MainPage = () => {
   const [total , setTotal] = useState(0)
