@@ -9,7 +9,6 @@ const Decade = ({firstDec , secondDec , thirdDec , monthInfo}) => {
 
      const today = new Date().toLocaleDateString().split("/")[1] 
      const monthName = new Date().toLocaleString('default' , {month:"long"})
-     const passedMonth = new Date().getMonth() - 1
 
       const total = firstDec + secondDec + thirdDec
 
