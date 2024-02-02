@@ -5,7 +5,6 @@ import styles from './range.module.css'
 const InputContainer = ({time , max , refresh , setRefresh , total}) => {
     const [value , setValue] = useState(0)
   
-    console.log(value);
     const changeHandler = (e)=>{
       if(e.target.value> max){
        e.target.value = max

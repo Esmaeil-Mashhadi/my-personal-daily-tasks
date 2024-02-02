@@ -1,0 +1,67 @@
+.buttonsContainer{
+    position: relative;
+    z-index: 7;
+    width: 600px;
+    height: 400px;
+    background-color: rgba(0, 139, 139, 0.511);
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(174, 174, 145, 0.421) ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;  
+  }
+  
+  .todayContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .date {
+    font-weight: bold;
+    text-decoration: overline;
+  }
+
+  .date input {
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+    background-color: rgb(44, 232, 232);
+    border: none;
+    text-align: center;
+  }
+  .todayContainer input {
+    outline: none;
+    border-radius: 5px;
+    width: 50px;
+    border: none;
+    padding: 5px;
+    background-color: aquamarine;
+    box-shadow: 0px 0px 5px black;
+    margin-left: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  
+  .todayContainer button{
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    background-color: chartreuse;
+    font-weight: bold;
+    color: black;
+    box-shadow: 0px 0px 5px black;
+    transition: .2s ease;
+  
+  }
+  
+  .todayContainer button:hover{
+    cursor: pointer;
+    scale: 1.1;
+  }
+  
+  
