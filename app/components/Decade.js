@@ -12,8 +12,7 @@ const Decade = ({firstDec , secondDec , thirdDec , monthInfo}) => {
       const total = firstDec + secondDec + thirdDec
 
 
- 
-
+        console.log(total);
     return (
         
         <div  className ={styles.container}>
