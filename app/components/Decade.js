@@ -1,5 +1,4 @@
 'use client'
-import { useEffect, useState } from 'react';
 import styles from './Decade.module.css'
 import DecadeRange from './modules/DecadeRange';
 import MonthRange from './modules/MonthRange';

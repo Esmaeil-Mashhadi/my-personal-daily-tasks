@@ -2,7 +2,6 @@ import styles from './page.module.css'
 import TaskSquare from './components/TaskSquare';
 import Decade from './components/Decade';
 import decadeInfo from '@/utils/getDecadeInfo';
-import { handleMonth } from '@/utils/handleMonth';
 import { getMonthInfo } from '@/utils/getMontInfo';
 
 
