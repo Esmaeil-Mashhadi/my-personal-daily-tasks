@@ -5,6 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import InputContainer from './modules/Range';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useRouter } from 'next/navigation';
 
 
 
@@ -20,6 +21,8 @@ const TaskSquare = () => {
       const Night = JSON.parse(localStorage.getItem("Night"))
       setTotal(Morning + Noon + Night)
     },[refresh])
+
+    const router = useRouter()
   
 
 
@@ -45,6 +48,7 @@ const TaskSquare = () => {
         localStorage.removeItem('Noon')
         localStorage.removeItem('Night')
         setRefresh(!refresh)
+        router.refresh()
         toast.success(data.message)
       }
     }
