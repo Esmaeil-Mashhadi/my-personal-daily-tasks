@@ -15,3 +15,9 @@
 .rangeContainer{
     display: flex;
 }
+
+.monthInfoContainer{
+    position: absolute;
+    top: 35px;
+    left: 35px;
+}

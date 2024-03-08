@@ -1,10 +1,10 @@
-import { months } from '@/utils/constants'
 import styles from './MonthRange.module.css'
 
 function MonthRange({ info}) {
 
    const{monthName , nthMonth , total} = info
-   const perDayResult = total/30
+
+   const perDayResult = Math.round(total/30)
    const max = 240
    const progress =  (total/240)*100
    const style = {

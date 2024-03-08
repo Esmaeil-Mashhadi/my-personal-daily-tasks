@@ -5,21 +5,21 @@ import MonthRange from './modules/MonthRange';
 
 const Decade = ({firstDec , secondDec , thirdDec , monthInfo}) => {
 
-
      const today = new Date().toLocaleDateString().split("/")[1] 
      const monthName = new Date().toLocaleString('default' , {month:"long"})
 
       const total = firstDec + secondDec + thirdDec
 
 
-        console.log(total);
-    return (
-        
+    return (       
         <div  className ={styles.container}>
-      
-            {monthInfo.map((info , index) => (
+        
+            <div className={styles.monthInfoContainer}> 
+              {monthInfo.map((info , index) => (
                 <MonthRange key={index} info= {info.monthes} /> 
-            ))}
+                 ))}
+            </div>
+
            <div className={styles.decadeContainer}>
                  <label>{monthName} </label>
                 <div className={styles.rangeContainer}>
