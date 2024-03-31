@@ -11,11 +11,11 @@ const MainPage = async() => {
   const {firstDec ,secondDec , thirdDec } =  await decadeInfo()
   const monthInfo = await getMonthInfo()
   const plain = JSON.parse(JSON.stringify(monthInfo))
-  await handleMonth(firstDec + secondDec + thirdDec)
+   await handleMonth(firstDec + secondDec + thirdDec)
   return (
     <div className ={styles.container}>
     <img style={{pointerEvents:"none"}} src='background.jpg'/>
-      <Decade monthInfo ={plain} firstDec={firstDec} secondDec={secondDec} thirdDec={thirdDec} />
+      <Decade  monthInfo ={plain} firstDec={firstDec} secondDec={secondDec} thirdDec={thirdDec} />
       <TaskSquare />
     </div>
   );

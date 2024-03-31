@@ -15,7 +15,6 @@ function MonthRange({ info}) {
    }
   return (
     <div className={styles.container}>
-            <h2>Monthes Result</h2>
                 <div  className={styles.resultContainer} style={style}>
                     <label>{monthName} <span>{nthMonth}</span></label>
                       <input disabled = {true} type='range' value={total} min={0} max={max} />

@@ -24,5 +24,7 @@ export const handleMonth = async(total)=>{
         }
         return false
     }
+    }else{
+        return false
     }
 }

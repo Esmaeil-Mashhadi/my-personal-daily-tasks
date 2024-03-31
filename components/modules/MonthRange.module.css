@@ -1,6 +1,7 @@
 .container{
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
 
 .resultContainer{
@@ -21,8 +22,8 @@
     justify-content: center;
     padding: 5px;
     font-size: 10px;
-    top: -10px;
-    left: 55px;
+    top: -15px;
+    left:-5px;
 }
 .container input[type="range"]{
     position: relative;
@@ -58,11 +59,11 @@
     pointer-events: none;
     opacity: 0;
     transition: .2s;
-    transform: translateY(50px);
+    transform: translateY(0px);
     scale: .8;
 }
 
 .resultContainer:hover + .perDay{
     opacity: 1;
-    transform: translateY(120px);
+    transform: translateY(30px);
 }
