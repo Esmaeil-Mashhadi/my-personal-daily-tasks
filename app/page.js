@@ -1,9 +1,10 @@
+import TaskSquare from '@/components/TaskSquare';
 import styles from './page.module.css'
-import TaskSquare from './components/TaskSquare';
-import Decade from './components/Decade';
+
 import decadeInfo from '@/utils/getDecadeInfo';
 import { getMonthInfo } from '@/utils/getMontInfo';
 import { handleMonth } from '@/utils/handleMonth';
+import Decade from '@/components/Decade';
 
 
 const MainPage = async() => {
