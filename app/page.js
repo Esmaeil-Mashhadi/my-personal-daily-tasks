@@ -7,7 +7,9 @@ import { handleMonth } from '@/utils/handleMonth';
 import Decade from '@/components/Decade';
 
 
+export const dynamic = 'force-dynamic';
 const MainPage = async() => {
+
   const {firstDec ,secondDec , thirdDec } =  await decadeInfo()
   const monthInfo = await getMonthInfo()
   const plain = JSON.parse(JSON.stringify(monthInfo))
